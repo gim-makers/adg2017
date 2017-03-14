@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Arduino Day 2016 #GIM</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+    <link href="css/timeline.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="js/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var deadline = 'April 1 2017 08:00:00 GMT-03:00';
+
+        function getTimeRemaining(endtime){
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor( (t/1000) % 60 );
+            var minutes = Math.floor( (t/1000/60) % 60 );
+            var hours = Math.floor( (t/(1000*60*60)) % 24 );
+            var days = Math.floor( t/(1000*60*60*24) );
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
+        function initializeClock(endtime){
+            function updateClock(){
+                var t = getTimeRemaining(endtime);
+                document.getElementById("dias").innerHTML =  ('\u00A0' + t.days).slice(-2);
+                document.getElementById("horas").innerHTML =  ('\u00A0' + t.hours).slice(-2);
+                document.getElementById("min").innerHTML =  ('\u00A0' + t.minutes).slice(-2);
+                document.getElementById("seg").innerHTML =  ('\u00A0' + t.seconds).slice(-2);
+                if(t.total<=0){
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock(); // run function once at first to avoid delay
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+
+        $(document).ready(function(){initializeClock(deadline)});
+    </script>
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-centered">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#inscricao">Inscrição</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#programacao">Programação</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#palestrantes">Palestras</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#patrocinio">Apoio</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#local">Localização</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+            <div class="container">
+                <div class="row countdown">
+                    <div class="nbox col-lg-2 col-lg-offset-2 text-center">
+                        <span class="n" id="dias">0</span>
+                        <span class="l">Dias</span>
+                    </div>
+                    <div class="nbox col-lg-2">
+                        <span class="n" id="horas">0</span>
+                        <span class="l">Horas</span>
+                    </div>
+                    <div class="nbox col-lg-2">
+                        <span class="n" id="min">0</span>
+                        <span class="l">Min</span>
+                    </div>
+                    <div class="nbox col-lg-2">
+                        <span class="n" id="seg">0</span>
+                        <span class="l">Seg</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="nbox col-lg-8 col-lg-offset-2 text-center countdown">
+                        <span class="clabel">Sábado, 1 de abril às 8:00</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img class="header-img" src="img/logo3.png"></img>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="success" id="inscricao">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Inscrição</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p>O Arduino Day é um evento global incentivado pelos idealizadores da plataforma arduino.cc para comemorar a existência da plaquinha open source mais querida entre os makers. A nossa edição do Arduino Day, o <b>ADG</b>, é um esforço colaborativo do Grupo de Integração Maker <b>(GIM)</b> com outros parceiros que abraçaram a causa aqui no estado. Um evento gratuito com o objetivo de difundir a cultura maker.</p>
+                    <p><b>Palestras: </b>Totalmente gratuitas com temas diversos: prototipagem, programação, internet das coisas, educação, empreendedorismo, movimento Maker e mais!</p>
+                    <p><b>Exposição: </b>Este ano teremos uma sala para expor projetos e plaquinhas, impressão 3D e outras surpresas</p>
+                    <p><b>Oficinas: </b>Tradicionais em nossos ADGs, abordam desde conceitos básicos a acionamento de motores e leitura de sensores</p>
+                    <p><b>Competição: </b>Em parceria com o InovaHack, estamos organizando pela primeira vez uma competição de robôs em equipes de três participantes. O material será fornecido pela organização e as equipes contarão com oficinas exclusivas. BREVE MAIS INFORMAÇÕES</p>
+                    <p>Para ajudar nos custos do evento, criamos a campanha “você patrocina”. Como retribuição, dispomos diversas oficinas e atividades interativas para que vocês possam ter contato com o arduino. Exceto pelo computador, disponibilizaremos todo o material necessário para a oficina. </p>
+                </div>
+            </div>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <a href="#" class="btn btn-lg btn-dark">Inscreva-se!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="tl" id="programacao">
+         <h3 style="text-align: center; color: #59c8ce">Em breve</h3>
+         <!--
+         <div class="container">
+                <div class='timeline' id='top'>
+                  <li class='timeline-event top' data-category=''>
+                    <div class='timeline-event-date big'>
+                        08:00 - ABERTURA
+                        <span class="local">
+                            Anfiteatro D
+                        </span>
+                    </div>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'></div>
+                  </li>
+                  <li class='timeline-event' data-category='time'>
+                    <div class='timeline-event-date big'>
+                        <div pan class="time">09:00</div>
+                    </div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Anfiteatro D</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Anfiteatro F</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='oficina'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Sala 2</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='oficina'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Sala 3</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='time'>
+                    <div class='timeline-event-date big'>
+                        <div pan class="time">10:00</div>
+                    </div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Anfiteatro D</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Anfiteatro F</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event mid' data-category=''>
+                    <div class='timeline-event-date big almoco'>
+                        11:00 - ALMOÇO
+                    </div>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'></div>
+                  </li><li class='timeline-event' data-category='time'>
+                    <div class='timeline-event-date big'>
+                        <div pan class="time">13:00</div>
+                    </div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Anfiteatro D</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class="timeline-event-date local">Anfiteatro F</div>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event' data-category='personal'>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'>Em breve!</div>
+                  </li>
+                  <li class='timeline-event bottom' data-category=''>
+                    <div class='timeline-event-date big'>
+                        17:00 - ENCERRAMENTO
+                        <span class="local">
+                            Anfiteatro D
+                        </span>
+                    </div>
+                    <img class='timeline-event-img' src=''>
+                    <div class='timeline-event-description'></div>
+                  </li>
+                </div>
+            -->
+    </section>
+
+    <section class="success" id="palestrantes">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Palestrantes</h2>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <div class="pal-box">
+                    <div class="cropper">
+                        <img src="img/pal/1.png" class="pal-img" alt="">
+                    </div>
+                    <div class="pal-text">
+                        Hudson
+                    </div>
+                </div>
+                <div class="pal-box">
+                    <div class="cropper">
+                        <img src="img/pal/2.png" class="pal-img" alt="">
+                    </div>
+                    <div class="pal-text">
+                        Hudson
+                    </div>
+                </div>
+                <div class="pal-box">
+                    <div class="cropper">
+                        <img src="img/pal/3.png" class="pal-img" alt="">
+                    </div>
+                    <div class="pal-text">
+                        Hudson
+                    </div>
+                </div>
+                <div class="pal-box">
+                    <div class="cropper">
+                        <img src="img/pal/4.png" class="pal-img" alt="">
+                    </div>
+                    <div class="pal-text">
+                        Hudson
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="sponsor" id="patrocinio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Patrocínio</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 text-center">
+                    <img class="sponsor-img" src="img/sponsor/4Life.png" class="sponsor-img" alt="">
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img class="sponsor-img" src="img/sponsor/robo_educ.png" class="sponsor-img" alt="">
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img class="sponsor-img" src="img/sponsor/cooperativa_cultural.png" class="sponsor-img" alt="">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img class="sponsor-img" src="img/sponsor/ibyte.png" class="sponsor-img" alt="">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img class="sponsor-img" src="img/sponsor/natalMakers.png" class="sponsor-img" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="local" id="local">
+        <aside class="call-to-action bg-primary">
+            <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h3>Localização</h3>
+                            <p>Escola de Ciência &amp; Tecnologia, UFRN<br>Natal, RN</p>
+                        </div>
+                    </div>
+                </div>
+        </aside>
+    </section>
+
+    <!-- Contact Section -->
+        <!-- Map -->
+    <section id="contact" class="map">
+        <iframe style="pointer-events:none;" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.0955913050984!2d-35.201323284348106!3d-5.842149915284153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x7f03f37058120186!2sEC%26T+-+Escola+de+Ci%C3%AAncia+%26+Tecnologia!5e0!3m2!1sen!2sus!4v1455948351873"></iframe>
+        <br />
+    </section>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+</body>
+
+</html>
