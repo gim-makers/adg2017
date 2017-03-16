@@ -2,6 +2,14 @@
     width: 40%;
 }
 
+.sponsor-teste {
+    width: 60%
+}
+
 .text-center {
     text-align: center;
+}
+
+.tooltip-link {
+    color: black;
 }
