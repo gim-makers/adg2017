@@ -17,3 +17,18 @@
 .tooltip-link {
     color: black;
 }
+
+.p-palestra {
+    text-align: center;
+    font-size: 18px;
+}
+
+.titulo-palestra {
+    text-align: center;
+    font-size: 16px;
+}
+
+.palestrante-nome {
+    text-align: center;
+    font-size: 14px;
+}
