@@ -5,7 +5,7 @@
   word-wrap: break-word;
 }
 
-#top{
+#top {
   background: repeating-linear-gradient(135deg, transparent 0, transparent 4px, #00919a 4px, #00919a 8px);
   background-attachment: fixed, scroll;
   background-size: 1em 100%, 100%;
